@@ -7,16 +7,19 @@ interface FioriAppFrameProps {
 
 export function FioriAppFrame({ appPath, title = "Fiori Application" }: FioriAppFrameProps) {
   return (
-    <iframe
-      src={appPath}
-      title={title}
-      style={{
-        width: "100%",
-        height: "100%",
-        border: "none",
-        display: "block",
-      }}
-      allow="clipboard-write"
-    />
+    <div style={{ width: "100%", height: "100%", position: "relative" }}>
+      <iframe
+        src={appPath}
+        title={title}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          border: "none",
+        }}
+        allow="clipboard-write"
+      />
+    </div>
   );
 }
