@@ -6,8 +6,8 @@ import {
   SideNavigationItem,
 } from "@ui5/webcomponents-react";
 import "@ui5/webcomponents-icons/dist/product.js";
-import "@ui5/webcomponents-icons/dist/category.js";
-import "@ui5/webcomponents-icons/dist/supplier.js";
+import "@ui5/webcomponents-icons/dist/folder.js";
+import "@ui5/webcomponents-icons/dist/shipping-status.js";
 
 export function AppShell() {
   const navigate = useNavigate();
@@ -32,13 +32,13 @@ export function AppShell() {
           />
           <SideNavigationItem
             text="Categories"
-            icon="category"
+            icon="folder"
             data-path="/categories"
             selected={location.pathname === "/categories"}
           />
           <SideNavigationItem
             text="Suppliers"
-            icon="supplier"
+            icon="shipping-status"
             data-path="/suppliers"
             selected={location.pathname === "/suppliers"}
           />
