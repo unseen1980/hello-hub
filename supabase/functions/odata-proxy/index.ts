@@ -7,10 +7,8 @@ const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
   "Access-Control-Allow-Headers":
-    "Content-Type, Accept, OData-Version, OData-MaxVersion, If-Match, If-None-Match, Prefer, X-CSRF-Token",
-  "Access-Control-Expose-Headers": "OData-Version, ETag, Location, Preference-Applied",
-  "Access-Control-Allow-Headers":
     "Content-Type, Accept, OData-Version, OData-MaxVersion, If-Match, If-None-Match, Prefer, X-CSRF-Token, MIME-Version",
+  "Access-Control-Expose-Headers": "OData-Version, ETag, Location, Preference-Applied, MIME-Version",
 };
 
 serve(async (req: Request) => {
