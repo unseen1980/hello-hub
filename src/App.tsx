@@ -20,6 +20,24 @@ function App() {
                 />
               }
             />
+            <Route
+              path="/categories"
+              element={
+                <FioriAppFrame
+                  appPath="/fiori/categories/webapp/index.html"
+                  title="Categories"
+                />
+              }
+            />
+            <Route
+              path="/suppliers"
+              element={
+                <FioriAppFrame
+                  appPath="/fiori/suppliers/webapp/index.html"
+                  title="Suppliers"
+                />
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

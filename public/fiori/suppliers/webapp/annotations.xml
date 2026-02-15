@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://vyaxgdevekolxgdjpthr.supabase.co/functions/v1/odata-proxy/$metadata">
+    <edmx:Include Namespace="sap.capire.officesupplies.CatalogAdminNoauth"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="local.annotations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <!-- Table columns for the List Report -->
+      <Annotations Target="sap.capire.officesupplies.CatalogAdminNoauth.Suppliers">
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="identifier"/>
+              <PropertyValue Property="Label" String="Identifier"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+              <PropertyValue Property="Label" String="Name"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="city"/>
+              <PropertyValue Property="Label" String="City"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="phone"/>
+              <PropertyValue Property="Label" String="Phone"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+
+      <!-- Filter bar fields -->
+      <Annotations Target="sap.capire.officesupplies.CatalogAdminNoauth.Suppliers">
+        <Annotation Term="UI.SelectionFields">
+          <Collection>
+            <PropertyPath>name</PropertyPath>
+            <PropertyPath>identifier</PropertyPath>
+            <PropertyPath>city</PropertyPath>
+          </Collection>
+        </Annotation>
+      </Annotations>
+
+      <!-- Object Page sections -->
+      <Annotations Target="sap.capire.officesupplies.CatalogAdminNoauth.Suppliers">
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#General"/>
+              <PropertyValue Property="Label" String="General Information"/>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Address"/>
+              <PropertyValue Property="Label" String="Address"/>
+            </Record>
+          </Collection>
+        </Annotation>
+
+        <Annotation Term="UI.FieldGroup" Qualifier="General">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="identifier"/>
+                  <PropertyValue Property="Label" String="Identifier"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="name"/>
+                  <PropertyValue Property="Label" String="Name"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="phone"/>
+                  <PropertyValue Property="Label" String="Phone"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+
+        <Annotation Term="UI.FieldGroup" Qualifier="Address">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="address"/>
+                  <PropertyValue Property="Label" String="Address"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="street"/>
+                  <PropertyValue Property="Label" String="Street"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="building"/>
+                  <PropertyValue Property="Label" String="Building"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="postCode"/>
+                  <PropertyValue Property="Label" String="Post Code"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="city"/>
+                  <PropertyValue Property="Label" String="City"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

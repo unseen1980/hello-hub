@@ -1,0 +1,97 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "catalog.categories",
+    "type": "application",
+    "title": "Categories",
+    "description": "Manage Categories",
+    "applicationVersion": { "version": "1.0.0" },
+    "dataSources": {
+      "mainService": {
+        "uri": "https://vyaxgdevekolxgdjpthr.supabase.co/functions/v1/odata-proxy/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0",
+          "annotations": ["localAnnotations"]
+        }
+      },
+      "localAnnotations": {
+        "uri": "annotations.xml",
+        "type": "ODataAnnotation"
+      }
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupId": "$direct"
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "CategoriesList",
+          "target": "CategoriesList"
+        },
+        {
+          "pattern": "Categories({key}):?query:",
+          "name": "CategoriesObjectPage",
+          "target": "CategoriesObjectPage"
+        }
+      ],
+      "targets": {
+        "CategoriesList": {
+          "type": "Component",
+          "id": "CategoriesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Categories",
+              "variantManagement": "Page",
+              "initialLoad": "Enabled",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "CategoriesObjectPage": {
+          "type": "Component",
+          "id": "CategoriesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Categories",
+              "editableHeaderContent": false
+            }
+          }
+        }
+      }
+    },
+    "flexEnabled": false,
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  }
+}
