@@ -1,0 +1,4 @@
+project_id = "vyaxgdevekolxgdjpthr"
+
+[functions.odata-proxy]
+verify_jwt = false
