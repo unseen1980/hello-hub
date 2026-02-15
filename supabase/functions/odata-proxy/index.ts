@@ -1,12 +1,16 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const ODATA_BASE = "https://sap-ux-mock-services-v4-lrop-custom-base-uri.cfapps.us10.hana.ondemand.com/catalog-admin-noauth";
+const ODATA_BASE =
+  "https://sap-ux-mock-services-v4-lrop-custom-base-uri.cfapps.us10.hana.ondemand.com/catalog-admin-noauth";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Accept, OData-Version, OData-MaxVersion, If-Match, If-None-Match, Prefer, X-CSRF-Token",
+  "Access-Control-Allow-Headers":
+    "Content-Type, Accept, OData-Version, OData-MaxVersion, If-Match, If-None-Match, Prefer, X-CSRF-Token",
   "Access-Control-Expose-Headers": "OData-Version, ETag, Location, Preference-Applied",
+  "Access-Control-Allow-Headers":
+    "Content-Type, Accept, OData-Version, OData-MaxVersion, If-Match, If-None-Match, Prefer, X-CSRF-Token, MIME-Version",
 };
 
 serve(async (req: Request) => {
