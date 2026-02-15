@@ -1,0 +1,96 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "catalog.products",
+    "type": "application",
+    "title": "Products",
+    "description": "Manage Products",
+    "applicationVersion": { "version": "1.0.0" },
+    "dataSources": {
+      "mainService": {
+        "uri": "https://vyaxgdevekolxgdjpthr.supabase.co/functions/v1/odata-proxy/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0",
+          "annotations": ["localAnnotations"]
+        }
+      },
+      "localAnnotations": {
+        "uri": "annotations.xml",
+        "type": "ODataAnnotation"
+      }
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ProductsList",
+          "target": "ProductsList"
+        },
+        {
+          "pattern": "Products({key}):?query:",
+          "name": "ProductsObjectPage",
+          "target": "ProductsObjectPage"
+        }
+      ],
+      "targets": {
+        "ProductsList": {
+          "type": "Component",
+          "id": "ProductsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Products",
+              "variantManagement": "Page",
+              "initialLoad": "Enabled",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ProductsObjectPage": {
+          "type": "Component",
+          "id": "ProductsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Products",
+              "editableHeaderContent": false
+            }
+          }
+        }
+      }
+    },
+    "flexEnabled": false,
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  }
+}
