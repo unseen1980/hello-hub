@@ -16,7 +16,7 @@ export function AppShell() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <ShellBar primaryTitle="Catalog Admin" />
-      <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+      <div style={{ display: "flex", flex: 1, minHeight: 0, overflow: "hidden" }}>
         <SideNavigation
           style={{ width: "240px" }}
           onSelectionChange={(e: any) => {
@@ -43,7 +43,7 @@ export function AppShell() {
             selected={location.pathname === "/suppliers"}
           />
         </SideNavigation>
-        <div style={{ flex: 1, overflow: "hidden" }}>
+        <div style={{ flex: 1, minHeight: 0, position: "relative", overflow: "hidden" }}>
           <Outlet />
         </div>
       </div>
