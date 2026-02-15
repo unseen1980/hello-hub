@@ -9,6 +9,34 @@
   <edmx:DataServices>
     <Schema Namespace="local.annotations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
+      <!-- Table columns for the List Report -->
+      <Annotations Target="sap.capire.officesupplies.CatalogAdminNoauth.Products">
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="identifier"/>
+              <PropertyValue Property="Label" String="Identifier"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+              <PropertyValue Property="Label" String="Name"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="price"/>
+              <PropertyValue Property="Label" String="Price"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="stock"/>
+              <PropertyValue Property="Label" String="Stock"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="rating"/>
+              <PropertyValue Property="Label" String="Rating"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+
       <!-- Filter bar fields for the List Report -->
       <Annotations Target="sap.capire.officesupplies.CatalogAdminNoauth.Products">
         <Annotation Term="UI.SelectionFields">
